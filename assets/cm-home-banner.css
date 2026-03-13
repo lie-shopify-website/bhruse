@@ -1,0 +1,352 @@
+/* home-banner - Swiper 轮播样式 */
+
+.home-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-banner__swiper {
+  width: 100%;
+  height: 100%;
+  min-height: 40rem; /* 父级无高度时避免变成 0，具体高度由下方变体设置 */
+}
+
+.home-banner__wrapper {
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+}
+
+.home-banner__slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  overflow: hidden;
+}
+
+/* 幻灯片内媒体容器 */
+.home-banner__media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-foreground, #121212);
+}
+
+.home-banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 当前幻灯片图片：5 秒内由大到小的轻微缩放动画 */
+.home-banner__slide.swiper-slide-active .home-banner__media img {
+  animation: home-banner-zoom-out 5s ease-out forwards;
+}
+
+@keyframes home-banner-zoom-out {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.home-banner__media.placeholder {
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.home-banner__media.placeholder svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+/* 幻灯片遮罩（可选） */
+.home-banner__slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 文字内容区 */
+.home-banner__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.home-banner__content--top-left {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.home-banner__content--top-center {
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.home-banner__content--top-right {
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.home-banner__content--middle-left {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.home-banner__content--middle-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.home-banner__content--middle-right {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.home-banner__content--bottom-left {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.home-banner__content--bottom-center {
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.home-banner__content--bottom-right {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.home-banner__box {
+  max-width: 54rem;
+  text-align: center;
+}
+
+.home-banner__content--left .home-banner__box,
+.home-banner__content--top-left .home-banner__box,
+.home-banner__content--middle-left .home-banner__box,
+.home-banner__content--bottom-left .home-banner__box {
+  text-align: left;
+}
+
+.home-banner__content--right .home-banner__box,
+.home-banner__content--top-right .home-banner__box,
+.home-banner__content--middle-right .home-banner__box,
+.home-banner__content--bottom-right .home-banner__box {
+  text-align: right;
+}
+
+.home-banner__heading {
+  margin: 0 0 1rem;
+  color: rgb(var(--color-foreground));
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.home-banner__text {
+  margin: 0 0 1.5rem;
+  color: rgba(var(--color-foreground), 0.9);
+  line-height: 1.5;
+}
+
+.home-banner__text p {
+  margin: 0;
+}
+
+.home-banner__buttons {
+  margin-top: 1.5rem;
+}
+
+.home-banner__buttons .button {
+  pointer-events: auto;
+}
+
+/* 高度变体：给 swiper 和 slide 明确高度，否则内部绝对定位导致高度为 0 */
+.home-banner--small .home-banner__swiper {
+  height: 28rem;
+  min-height: 28rem;
+}
+
+.home-banner--medium .home-banner__swiper {
+  height: 40rem;
+  min-height: 40rem;
+}
+
+.home-banner--large .home-banner__swiper {
+  height: 56rem;
+  min-height: 56rem;
+}
+
+@media screen and (max-width: 749px) {
+  .home-banner--small .home-banner__swiper {
+    height: 24rem;
+    min-height: 24rem;
+  }
+
+  .home-banner--medium .home-banner__swiper {
+    height: 32rem;
+    min-height: 32rem;
+  }
+
+  .home-banner--large .home-banner__swiper,
+  .home-banner--full .home-banner__swiper  {
+    height: 40rem;
+    min-height: 40rem;
+  }
+
+  .home-banner__content {
+    padding: 1.5rem;
+  }
+
+  .home-banner__heading {
+    font-size: 1.8rem;
+  }
+}
+
+/* 导航按钮 */
+.home-banner__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 4.4rem;
+  height: 4.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: rgb(var(--color-foreground));
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.home-banner__nav:hover {
+  background: #fff;
+  opacity: 1;
+}
+
+.home-banner__nav::after {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.home-banner__nav--prev {
+  left: 1.5rem;
+}
+
+.home-banner__nav--prev::after {
+  content: '‹';
+}
+
+.home-banner__nav--next {
+  right: 1.5rem;
+}
+
+.home-banner__nav--next::after {
+  content: '›';
+}
+
+@media screen and (max-width: 749px) {
+  .home-banner__nav {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+
+  .home-banner__nav--prev {
+    left: 0.8rem;
+  }
+
+  .home-banner__nav--next {
+    right: 0.8rem;
+  }
+}
+
+/* 分页器 */
+.home-banner__pagination {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  z-index: 10;
+}
+
+.home-banner__pagination .swiper-pagination-bullet {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.home-banner__pagination .swiper-pagination-bullet-active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* 自动播放按钮（可选） */
+.home-banner__autoplay {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: rgb(var(--color-foreground));
+}
+
+.home-banner__autoplay:hover {
+  background: #fff;
+}
+
+/* 无障碍：隐藏但可聚焦 */
+.home-banner__nav.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+
+@media screen and (min-width: 750px) {
+  .home-banner--full .home-banner__swiper {
+    height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height));
+  }
+}

@@ -1,0 +1,205 @@
+{% schema %}
+    {
+        "name": "行业应用",
+        "settings": [
+            { "type": "header","content":"配置"},
+            { "type": "image_picker", "id": "background_image", "label": "背景图片" },
+            { "type": "image_picker", "id": "background_image_mb", "label": "背景图片(手机端)" },
+            { "type": "color", "id": "background_color", "label": "背景颜色", "default": "#000000" },
+            { "type": "color", "id": "heading_text_color", "label": "标题文字颜色", "default": "#ffffff" },
+
+
+            { "type": "header","content":"标题"},
+            { "type": "textarea", "id": "section_title", "label": "大标题" },
+            { "type": "textarea", "id": "section_info", "label": "内容" },
+
+
+            { "type": "header","content":"其他"},
+            { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 36 },
+            { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 36 },
+            { "type": "text", "id": "custom_class", "label": "自定义class" }
+        ],
+        "blocks": [
+            {
+                "type": "item",
+                "name": "应用领域",
+                "settings": [
+                  { "type": "image_picker", "id": "image", "label": "图片" },
+                  { "type": "image_picker", "id": "image_bg", "label": "背景" },
+                  { "type": "text", "id": "tab_title", "default": "应用领域名称", "label": "切换标题 (选填)" },
+                  { "type": "text", "id": "title", "default": "应用领域名称", "label": "标题" },
+                  { "type": "richtext", "id": "description", "default": "<p>应用领域描述</p>", "label": "描述" },
+                  { "type": "text", "id": "link_label", "default": "浏览 >>", "label": "链接文字" },
+                  { "type": "url", "id": "link", "label": "链接地址" }
+                ]
+            }
+        ],
+
+        "presets": [
+            {
+                "name": "行业应用",
+                "category": "custom"
+            }
+        ]
+    }
+{% endschema %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div data-section-id="{{ section.id }}" class="cm-industry-applications-layout section-{{ section.id }}-padding">
+
+<div class="cm-industry-applications {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}">
+
+    {{ 'cm-industry-applications.css' | asset_url | stylesheet_tag }}
+    <style>
+        [data-section-id="{{ section.id }}"] {
+            --background-color: {{ section.settings.background_color }};
+            --heading-text-color: {{ section.settings.heading_text_color }};
+            --background-image: {% if section.settings.background_image != blank %}url('{{ section.settings.background_image | image_url: width: 1920 }}'){% else %}none{% endif %};
+            --background-image-mb: {% if section.settings.background_image_mb != blank %}url('{{ section.settings.background_image_mb | image_url: width: 640 }}'){% else %}none{% endif %};
+        }
+    </style>
+
+    <div class="mf-container page-width page-width-desktop">
+        {% if section.settings.section_title != blank or section.settings.section_info != blank %}
+        <div class="heading-box">
+            <div class="heading__title">
+                {%- if section.settings.section_title != blank -%}
+                    <h2 class="section-title title h1 inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                        {{ section.settings.section_title }}
+                    </h2>
+                {%- endif -%}
+                {%- if section.settings.section_info != blank -%}
+                    <div class="section-desc {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                        {{ section.settings.section_info -}}
+                    </div>
+                {%- endif -%}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="content-layout">
+            <div class="tab-layout">
+              <div class="tab-header js-tabHeader">
+                {% for block in section.blocks %}
+                    {% liquid 
+                        assign tab_title = block.settings.tab_title
+                        if tab_title == blank and block.settings.title != blank
+                            assign tab_title = block.settings.title
+                        endif
+                    %}
+                    {% if tab_title != blank %}
+                        <div class="tab-header-item js-tabHeaderItem {% if forloop.first %}active{% endif %}" data-tab-index="{{ forloop.index }}">
+                            <div class="tab-header-item-inner">{{ tab_title }}</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="tab-centent js-tabContent">
+                    {% for block in section.blocks %}
+                        {% liquid 
+                            assign title = block.settings.title
+                            assign description = block.settings.description
+                            assign link_label = block.settings.link_label
+                            assign link = block.settings.link
+                        %}
+                        
+                        <div class="tab-content-item js-tabContentItem {% if forloop.first %}active{% endif %}" data-tab-index="{{ forloop.index }}">
+                            <div class="tab-content-item-inner">
+
+                                <div class="tab-content-left">
+                                    <div class="tab-content-item-title">{{ title }}</div>
+                                    <div class="tab-content-item-description">{{ description }}</div>
+                                    {% if link_label != blank and link != blank %}
+                                        <a class="tab-content-item-link animate-arrow" href="{{ link }}">{{ link_label }}</a>
+                                    {% endif %}
+                                </div>
+
+                                <div class="tab-content-right">
+                                    {{ block.settings.image | image_url: width: 1500 | image_tag: class: 'image-entity' }}
+                                    {{ block.settings.image_bg | image_url: width: 1500 | image_tag: class: 'image-bg' }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+
+<script>
+    ;(function() {
+        const oSection = document.querySelector('[data-section-id="{{ section.id }}"]');
+
+        function init() {
+            if (!oSection) return;
+
+            initTab();
+        }
+
+        function initTab() {
+            const oTabHeader = oSection.querySelector('.js-tabHeader');
+            const oTabContent = oSection.querySelector('.js-tabContent');
+            if (!oTabHeader || !oTabContent) return;
+            
+            // 检测是否为触摸设备（iOS/Android）
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            
+            // 点击事件 - 手机端和电脑端都支持（包括iOS）
+            oTabHeader.addEventListener('click', (e) => {
+                // 使用closest确保即使点击子元素也能找到正确的tab项
+                const oTarget = e.target.closest('.js-tabHeaderItem');
+                if (!oTarget) return;
+                const tabIndex = oTarget.dataset.tabIndex;
+                switchTab(oTabHeader, oTabContent, oTarget, tabIndex);
+            });
+
+            // Hover效果 - 仅电脑端（非触摸设备，排除iOS）
+            // 使用hover媒体查询和触摸设备检测双重判断，确保iOS不会触发hover
+            if (!isTouchDevice && window.matchMedia('(hover: hover)').matches) {
+                oTabHeader.querySelectorAll('.js-tabHeaderItem').forEach(item => {
+                    item.addEventListener('mouseenter', (e) => {
+                        const oTarget = e.currentTarget;
+                        const tabIndex = oTarget.dataset.tabIndex;
+                        switchTab(oTabHeader, oTabContent, oTarget, tabIndex);
+                    });
+                });
+            }
+        }
+
+        function switchTab(oTabHeader, oTabContent, oTarget, tabIndex) {
+            oTabHeader.querySelectorAll('.js-tabHeaderItem').forEach(item => {
+                item.classList.remove('active');
+            });
+            oTabContent.querySelectorAll('.js-tabContentItem').forEach(item => {
+                item.classList.remove('active');
+            });
+            oTarget.classList.add('active');
+            const targetContent = oTabContent.querySelector(`[data-tab-index="${tabIndex}"]`);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        }
+    
+        window.addEventListener('DOMContentLoaded', () => {
+            init();
+        });
+    })();
+</script>

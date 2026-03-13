@@ -1,0 +1,237 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "cm_home_banner_TjHyAt": {
+      "type": "cm-home-banner",
+      "blocks": {
+        "slide_ae7qUj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/home-banner-03.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "幻灯片标题",
+            "heading_size": "h1",
+            "subheading": "在这里填写副标题或描述",
+            "button_label": "查看更多",
+            "link": "shopify://pages/contact",
+            "button_style_secondary": false,
+            "box_align": "middle-center"
+          }
+        },
+        "slide_QTRAEy": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/home-banner-04.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "幻灯片标题",
+            "heading_size": "h1",
+            "subheading": "在这里填写副标题或描述",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center"
+          }
+        },
+        "slide_hHCUfJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/home-banner-01.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "幻灯片标题",
+            "heading_size": "h1",
+            "subheading": "在这里填写副标题或描述",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center"
+          }
+        },
+        "slide_TAMbwk": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/home-banner-02.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "幻灯片标题",
+            "heading_size": "h1",
+            "subheading": "在这里填写副标题或描述",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_ae7qUj",
+        "slide_QTRAEy",
+        "slide_hHCUfJ",
+        "slide_TAMbwk"
+      ],
+      "name": "首页轮播 Home Banner",
+      "settings": {
+        "slide_height": "full",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "color_scheme": "",
+        "accessibility_info": "首页轮播图"
+      }
+    },
+    "industry_applications": {
+      "type": "cm-industry-applications",
+      "blocks": {
+        "item_388T8i": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/apply-content-01.png",
+            "image_bg": "shopify://shop_images/apply-content-bg.png",
+            "tab_title": "",
+            "title": "家电领域",
+            "description": "<p>家电领域产品应用包括：液晶电视、等离子电视机(主板)、等离子电视机(显示模块)、蓝光播放机、空调等。</p>",
+            "link_label": "浏览>>",
+            "link": "shopify://products/电感测试产品-1-10μh"
+          }
+        },
+        "item_mw7hYD": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/apply-content-02.png",
+            "image_bg": "shopify://shop_images/apply-content-bg.png",
+            "tab_title": "",
+            "title": "电光源领域",
+            "description": "<p>电光源领域产品应用包括：节能灯、LED灯等照明器材产品。</p>",
+            "link_label": "浏览>>",
+            "link": "shopify://products/电感测试产品-1-10μh"
+          }
+        },
+        "item_3yhinL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/apply-content-03.png",
+            "image_bg": "shopify://shop_images/apply-content-bg.png",
+            "tab_title": "",
+            "title": "通信领域",
+            "description": "<p>通信领域产品应用包括：手机(主板)、手机(通信模块)、无绳电话机、程控交换机、无线基站等网络通信产品。</p>",
+            "link_label": "浏览>>",
+            "link": "shopify://products/电感测试产品-1-10μh"
+          }
+        },
+        "item_GFqXEd": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/apply-content-04.png",
+            "image_bg": "shopify://shop_images/apply-content-bg.png",
+            "tab_title": "",
+            "title": "数码产品",
+            "description": "<p>数码产品产品应用包括：笔记本电脑、硬盘驱动器、LED显示器、大型液晶面板等。</p>",
+            "link_label": "浏览>>",
+            "link": "shopify://products/电感测试产品-1-10μh"
+          }
+        },
+        "item_diTgem": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/apply-content-05.png",
+            "image_bg": "shopify://shop_images/apply-content-bg.png",
+            "tab_title": "",
+            "title": "汽车电子",
+            "description": "<p>汽车电子产品应用包括：电动车管理系统、汽车(发动机管理系统)、汽车(车身管理系统)、汽车(安全管理系统)等。</p>",
+            "link_label": "浏览>>",
+            "link": "shopify://products/电感测试产品-1-10μh"
+          }
+        },
+        "item_UzV8ph": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/apply-content-06.png",
+            "image_bg": "shopify://shop_images/apply-content-bg.png",
+            "tab_title": "",
+            "title": "功能材料",
+            "description": "<p>功能材料产品应用包括：磁性材料、电子材料等</p>",
+            "link_label": "浏览>>",
+            "link": "shopify://products/电感测试产品-1-10μh"
+          }
+        }
+      },
+      "block_order": [
+        "item_388T8i",
+        "item_mw7hYD",
+        "item_3yhinL",
+        "item_GFqXEd",
+        "item_diTgem",
+        "item_UzV8ph"
+      ],
+      "name": "行业应用",
+      "settings": {
+        "background_image": "shopify://shop_images/content-m.jpg",
+        "background_image_mb": "shopify://shop_images/content-m.jpg",
+        "background_color": "#000000",
+        "heading_text_color": "#ffffff",
+        "section_title": "行业应用",
+        "section_info": "",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "custom_class": ""
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "主卖产品",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "featured_blog_QNHAjC": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "新闻",
+        "post_limit": 3,
+        "heading": "博客文章",
+        "heading_size": "h1",
+        "columns_desktop": 3,
+        "show_view_all": true,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "cm_home_banner_TjHyAt",
+    "industry_applications",
+    "featured-collection",
+    "featured_blog_QNHAjC"
+  ]
+}
