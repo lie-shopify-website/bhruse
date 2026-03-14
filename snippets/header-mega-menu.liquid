@@ -8,7 +8,7 @@
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
-      <li>
+      <li class="top-level-item">
         {%- if link.links != blank -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
@@ -16,11 +16,7 @@
                 id="HeaderMenu-{{ link.handle }}"
                 class="header__menu-item list-menu__item link focus-inset"
               >
-                <span
-                  {%- if link.child_active %}
-                    class="header__active-menu-item"
-                  {% endif %}
-                >
+                <span class="header__menu-item-text {% if link.child_active %}header__active-menu-item{% endif %}">
                   {{- link.title | escape -}}
                 </span>
                 {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -80,9 +76,7 @@
             {% endif %}
           >
             <span
-              {%- if link.current %}
-                class="header__active-menu-item"
-              {% endif %}
+              class="header__menu-item-text {%- if link.current %} header__active-menu-item{% endif %}"
             >
               {{- link.title | escape -}}
             </span>
