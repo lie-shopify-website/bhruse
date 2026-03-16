@@ -1,55 +1,94 @@
-{
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
     "name": "t:sections.header.name",
     "type": "header",
     "sections": {
-        "announcement-bar": {
-            "type": "announcement-bar",
-            "blocks": {
-                "announcement-bar-0": {
-                    "type": "announcement",
-                    "settings": {
-                        "text": "info@codaca.com",
-                        "link": ""
-                    }
-                }
-            },
-            "block_order": [
-                "announcement-bar-0"
-            ],
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "announcement-bar-0": {
+            "type": "announcement",
             "settings": {
-                "auto_rotate": false,
-                "change_slides_speed": 5,
-                "color_scheme": "scheme-2",
-                "show_line_separator": true,
-                "show_social": false,
-                "enable_country_selector": false,
-                "enable_language_selector": false
+              "text": "info@codaca.com",
+              "link": ""
             }
+          }
         },
-        "header": {
-            "type": "header",
-            "settings": {
-                "menu": "main-menu",
-                "menu_type_desktop": "mega",
-                "sticky_header_type": "none",
-                "show_line_separator": false,
-                "color_scheme": "scheme-1",
-                "menu_color_scheme": "scheme-1",
-                "enable_account": false,
-                "enable_cart": false,
-                "enable_sample_inquiry": true,
-                "sample_inquiry_url": "/",
-                "enable_country_selector": false,
-                "enable_language_selector": false,
-                "enable_customer_avatar": false,
-                "margin_bottom": 0,
-                "padding_top": 20,
-                "padding_bottom": 20
-            }
+        "block_order": [
+          "announcement-bar-0"
+        ],
+        "settings": {
+          "auto_rotate": false,
+          "change_slides_speed": 5,
+          "color_scheme": "scheme-2",
+          "show_line_separator": true,
+          "show_social": false,
+          "enable_country_selector": false,
+          "enable_language_selector": false
         }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "mega_menu_nAE4H3": {
+            "type": "mega_menu",
+            "settings": { 
+              "menu_item": "产品中心",
+              "image1": "shopify://shop_images/menu-001.png",
+              "title1": "行业电感",
+              "link1": "",
+              "image2": "shopify://shop_images/menu-001.png",
+              "title2": "行业电感",
+              "link2": "",
+            }
+          },
+          "mega_menu_c3fw4C": {
+            "type": "mega_menu",
+            "settings": {
+              "menu_item": "行业应用",
+              "image1": "shopify://shop_images/menu-002.png",
+              "title1": "3D打印",
+              "link1": "shopify://collections/frontpage",
+              "title2": "",
+              "link2": "",
+            }
+          }
+        },
+        "block_order": [
+          "mega_menu_nAE4H3",
+          "mega_menu_c3fw4C"
+        ],
+        "settings": {
+          "menu": "main-menu",
+          "menu_type_desktop": "mega",
+          "sticky_header_type": "none",
+          "show_line_separator": false,
+          "color_scheme": "scheme-1",
+          "menu_color_scheme": "scheme-1",
+          "enable_account": false,
+          "enable_cart": false,
+          "enable_sample_inquiry": true,
+          "sample_inquiry_url": "/",
+          "enable_country_selector": false,
+          "enable_language_selector": false,
+          "enable_customer_avatar": false,
+          "margin_bottom": 0,
+          "padding_top": 20,
+          "padding_bottom": 20
+        }
+      }
     },
     "order": [
-        "announcement-bar",
-        "header"
+      "announcement-bar",
+      "header"
     ]
-}
+  }
+  

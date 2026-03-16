@@ -15,12 +15,13 @@
         "slide_ae7qUj": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home-banner-03.jpg",
+            "image": "shopify://shop_images/banner-001.png",
+            "image_mobile": "shopify://shop_images/banner-mb001.png",
             "image_overlay_opacity": 0,
-            "heading": "幻灯片标题",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "在这里填写副标题或描述",
-            "button_label": "查看更多",
+            "subheading": "",
+            "button_label": "",
             "link": "shopify://pages/contact",
             "button_style_secondary": false,
             "box_align": "middle-center"
@@ -29,39 +30,12 @@
         "slide_QTRAEy": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home-banner-04.jpg",
+            "image": "shopify://shop_images/banner-002.png",
+            "image_mobile": "shopify://shop_images/banner-mb002.png",
             "image_overlay_opacity": 0,
-            "heading": "幻灯片标题",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "在这里填写副标题或描述",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center"
-          }
-        },
-        "slide_hHCUfJ": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/home-banner-01.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "幻灯片标题",
-            "heading_size": "h1",
-            "subheading": "在这里填写副标题或描述",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center"
-          }
-        },
-        "slide_TAMbwk": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/home-banner-02.jpg",
-            "image_overlay_opacity": 0,
-            "heading": "幻灯片标题",
-            "heading_size": "h1",
-            "subheading": "在这里填写副标题或描述",
+            "subheading": "",
             "button_label": "",
             "link": "",
             "button_style_secondary": false,
@@ -71,14 +45,12 @@
       },
       "block_order": [
         "slide_ae7qUj",
-        "slide_QTRAEy",
-        "slide_hHCUfJ",
-        "slide_TAMbwk"
+        "slide_QTRAEy"
       ],
       "name": "首页轮播 Home Banner",
       "settings": {
-        "slide_height": "full",
-        "auto_rotate": true,
+        "slide_height": "large",
+        "auto_rotate": false,
         "change_slides_speed": 5,
         "color_scheme": "",
         "accessibility_info": "首页轮播图"
@@ -176,8 +148,8 @@
         "heading_text_color": "#ffffff",
         "section_title": "行业应用",
         "section_info": "",
-        "remove_top_padding": false,
-        "remove_bottom_padding": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
         "custom_class": ""
       }
     },

@@ -79,6 +79,45 @@ header .header__icons span.sample-text {
 display: none;
 }
 
+header .mega-menu__content-wrapper {
+    --mega-gap: 20px;
+    --mega-item-base-width:30%;
+    --mega-item-base-max-width:450px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--mega-gap);
+}
+/* 图片区宽度：1张20%、2张40%、3张60%、4张80%，且不超过 450px */
+header .mega-menu__images {
+    flex: 0 0 min(calc(var(--mega-image-total) * var(--mega-item-base-width)), calc(var(--mega-item-base-max-width) * var(--mega-image-total)));
+    max-width: min(calc(var(--mega-image-total) * var(--mega-item-base-width)), calc(var(--mega-item-base-max-width) * var(--mega-image-total)));
+    display: flex;
+    gap: var(--mega-gap);
+}
+header .mega-menu__list {
+    flex: 1;
+}
+/* mega image */
+header .mega-menu__image {
+    position: relative;
+} 
+header a.mega-menu__image-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+}
+
+header .mega-menu__image-title {
+    margin-top: 12px;
+}
+
+header .mega-menu__image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 @media screen and (min-width: 990px) {
     .header__menu-desktop {
       display: block;
@@ -101,7 +140,7 @@ display: none;
     }
 
     header .header__menu-item-text {
-        color: #3388ff;
+        /* color: #3388ff; */
         text-underline-offset: .3rem;
         text-decoration: none;
         font-size: 16px;
@@ -111,7 +150,7 @@ display: none;
     }
 
     header li.top-level-item svg.icon-caret path {
-        fill: #3388ff;
+        /* fill: #3388ff; */
     }
 
     header li.top-level-item.active svg.icon-caret path {

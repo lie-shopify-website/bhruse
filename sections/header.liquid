@@ -583,7 +583,6 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
   "settings": [
     {
       "type": "link_list",
@@ -726,6 +725,23 @@
     }
   ],
   "blocks": [
+    {
+      "type": "mega_menu",
+      "name": "Mega菜单",
+      "settings": [
+        { "type": "text", "id": "menu_item", "label": "菜单项名称", "info": "一级菜单导航名称, 通过名称绑定" },
+
+        { "type": "header", "content": "活动" },
+        { "type": "image_picker", "id": "image1", "label": "图片" },
+        { "type": "text", "id": "title1", "label": "标题" },
+        { "type": "url", "id": "link1", "label": "链接" },
+
+        { "type": "header", "content": "活动" },
+        { "type": "image_picker", "id": "image2", "label": "图片" },
+        { "type": "text", "id": "title2", "label": "标题" },
+        { "type": "url", "id": "link2", "label": "链接" },
+      ]
+    },
     {
       "type": "@app"
     }

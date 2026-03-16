@@ -20,26 +20,20 @@
         >
           <div class="home-banner__media{% if block.settings.image == blank %} placeholder{% endif %}">
             {%- if block.settings.image != blank -%}
+
               {%- liquid
-                assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
-                assign fetch_priority = 'auto'
-                if section.index == 1 and forloop.first
-                  assign fetch_priority = 'high'
+                assign image = block.settings.image
+                assign image_mb = block.settings.image
+                if block.settings.image_mobile != blank
+                  assign image_mb = block.settings.image_mobile
                 endif
               -%}
-              {%- if forloop.first -%}
-                {{
-                  block.settings.image
-                  | image_url: width: 3840
-                  | image_tag: height: height, sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840', fetchpriority: fetch_priority
-                }}
-              {%- else -%}
-                {{
-                  block.settings.image
-                  | image_url: width: 3840
-                  | image_tag: loading: 'lazy', height: height, sizes: '100vw', widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-                }}
-              {%- endif -%}
+              <picture>
+                <source srcset="{{ image_mb | image_url: width: 989 }}"  media="(max-width: 989px)" />
+                <source srcset="{{ image | image_url: width: image.width }}" media="(min-width: 990px)" />
+                <img src="{{ image_mb | image_url: width: 989 }}" width="100%" height="auto" loading="lazy" alt="{{ image.alt }}" {% if forloop.first %}fetchpriority="high"{% endif %} />
+              </picture>
+
             {%- else -%}
               {%- if forloop.index == 1 -%}
                 {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -216,6 +210,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "图片"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "图片 (移动端)"
         },
         {
           "type": "range",

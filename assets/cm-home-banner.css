@@ -9,7 +9,6 @@
 .home-banner__swiper {
   width: 100%;
   height: 100%;
-  min-height: 40rem; /* 父级无高度时避免变成 0，具体高度由下方变体设置 */
 }
 
 .home-banner__wrapper {
@@ -28,7 +27,7 @@
 }
 
 /* 幻灯片内媒体容器 */
-.home-banner__media {
+/* .home-banner__media {
   position: absolute;
   top: 0;
   left: 0;
@@ -38,7 +37,7 @@
   align-items: center;
   justify-content: center;
   background: var(--color-foreground, #121212);
-}
+} */
 
 .home-banner__media img {
   width: 100%;
@@ -49,7 +48,7 @@
 
 /* 当前幻灯片图片：5 秒内由大到小的轻微缩放动画 */
 .home-banner__slide.swiper-slide-active .home-banner__media img {
-  animation: home-banner-zoom-out 5s ease-out forwards;
+  /* animation: home-banner-zoom-out 5s ease-out forwards; */
 }
 
 @keyframes home-banner-zoom-out {
@@ -187,38 +186,7 @@
   pointer-events: auto;
 }
 
-/* 高度变体：给 swiper 和 slide 明确高度，否则内部绝对定位导致高度为 0 */
-.home-banner--small .home-banner__swiper {
-  height: 28rem;
-  min-height: 28rem;
-}
-
-.home-banner--medium .home-banner__swiper {
-  height: 40rem;
-  min-height: 40rem;
-}
-
-.home-banner--large .home-banner__swiper {
-  height: 56rem;
-  min-height: 56rem;
-}
-
 @media screen and (max-width: 749px) {
-  .home-banner--small .home-banner__swiper {
-    height: 24rem;
-    min-height: 24rem;
-  }
-
-  .home-banner--medium .home-banner__swiper {
-    height: 32rem;
-    min-height: 32rem;
-  }
-
-  .home-banner--large .home-banner__swiper,
-  .home-banner--full .home-banner__swiper  {
-    height: 40rem;
-    min-height: 40rem;
-  }
 
   .home-banner__content {
     padding: 1.5rem;
@@ -344,9 +312,3 @@
 }
 
 
-@media screen and (min-width: 750px) {
-  .home-banner--full .home-banner__swiper {
-    height: calc(100vh - var(--header-height));
-    min-height: calc(100vh - var(--header-height));
-  }
-}
