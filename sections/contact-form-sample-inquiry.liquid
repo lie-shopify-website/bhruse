@@ -1,0 +1,279 @@
+
+{% schema %}
+{
+  "name": "样品询价表单",
+  "tag": "section",
+  "class": "section sample-inquiry-form",
+  "settings": [
+    { "type": "inline_richtext", "id": "heading", "default": "样品询价", "label": "标题" },
+    { "type": "select", "id": "heading_size", "options": [ 
+      { "value": "h2", "label": "小" }, 
+      { "value": "h1", "label": "中" }, 
+      { "value": "h0", "label": "大" }, 
+      { "value": "hxl", "label": "特大" }, 
+      { "value": "hxxl", "label": "特特大号" } 
+    ], "default": "h1", "label": "标题大小" },
+
+    { "type": "image_picker", "id": "contact_form_bg", "label": "背景图片" },
+    { "type": "image_picker", "id": "contact_form_bg_mb", "label": "背景图片(手机端)" },
+    { "type": "header", "content": "内边距" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "上边距", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "下边距", "default": 36 }
+  ],
+  "presets": [
+    { "name": "样品询价表单" }
+  ]
+}
+{% endschema %}
+
+
+
+{{ 'section-contact-form-sample-inquiry.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  [data-section-id="{{ section.id }}"] {
+    background-image: url('{{ section.settings.contact_form_bg | image_url: width: 1920 }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fcfcfc;
+    border: 1px solid #efefef;
+    margin-bottom: 80px;
+  }
+
+  @media screen and (max-width: 750px) {
+    [data-section-id="{{ section.id }}"] {
+      background-image: url('{{ section.settings.contact_form_bg_mb | image_url: width: 767 }}');
+    }
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+{% liquid
+  assign form_field_name = "姓名"
+  assign form_field_email = "电子邮箱"
+  assign form_field_phone = "手机号码"
+  assign form_field_company = "公司名称"
+  assign form_field_position = "工作职称"
+  assign form_field_country_province = "国家地区"
+  assign form_field_address = "详细地址"
+  assign form_field_application = "应用场景"
+  assign form_field_content = "内容"
+  assign form_field_content_placeholder = "请输入您需要的型号"
+  assign form_field_submit_button = "提交"
+%}
+
+
+<div class="contact-form-sample-inquiry page-width" data-section-id="{{ section.id }}">
+  <div class="contact page-width--narrow section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- else -%}
+      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
+    {%- endif -%}
+    {%- liquid
+      assign contact_form_class = 'isolate'
+      if settings.animations_reveal_on_scroll
+        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+      endif
+    -%}
+    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+      {%- if form.posted_successfully? -%}
+        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+          {{- 'icon-success.svg' | inline_asset_content -}}
+          {{ 'templates.contact.form.post_success' | t }}
+        </h2>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+            {{- 'icon-error.svg' | inline_asset_content -}}
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+      <div class="contact__fields">
+
+        {% comment %} 姓名 {% endcomment %}
+        <div class="field">
+          <input
+            class="field__input"
+            autocomplete="name"
+            type="text"
+            id="ContactForm-name"
+            name="contact[{{ form_field_name }}]"
+            value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+            placeholder="{{ form_field_name }}"
+          >
+          <label class="field__label" for="ContactForm-name">{{ form_field_name }}</label>
+        </div>
+
+        {% comment %} 电子邮箱 {% endcomment %}
+        <div class="field field--with-error">
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input"
+            name="contact[{{ form_field_email }}]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="{{ form_field_email }}"
+          >
+          <label class="field__label" for="ContactForm-email">
+            {{- form_field_email }}
+            <span aria-hidden="true">*</span></label
+          >
+          {%- if form.errors contains 'email' -%}
+            <small class="contact__field-error" id="ContactForm-email-error">
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              <span class="form__message">
+                <span class="svg-wrapper">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </span>
+            </small>
+          {%- endif -%}
+        </div>
+
+        {% comment %} 手机号码 {% endcomment %}
+        <div class="field">
+          <input
+            type="tel"
+            id="ContactForm-phone"
+            class="field__input"
+            autocomplete="tel"
+            name="contact[{{ form_field_phone }}]"
+            pattern="[0-9\-]*"
+            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            placeholder="{{ form_field_phone }}"
+          >
+          <label class="field__label" for="ContactForm-phone">{{ form_field_phone }}</label>
+        </div>
+  
+        {% comment %} 公司名称 {% endcomment %}
+        <div class="field">
+          <input
+            type="text"
+            id="ContactForm-company"
+            class="field__input"
+            autocomplete="company"
+            name="contact[{{ form_field_company }}]"
+            value="{% if form.company %}{{ form.company }}{% elsif customer %}{{ customer.company }}{% endif %}"
+            placeholder="{{ form_field_company }}"
+          >
+          <label class="field__label" for="ContactForm-company">{{ form_field_company }}</label>
+        </div>
+
+        {% comment %} 工作职称 {% endcomment %}
+        <div class="field">
+          <input
+            type="text"
+            id="ContactForm-position"
+            class="field__input"
+            autocomplete="position"
+            name="contact[{{ form_field_position }}]"
+            value="{% if form.position %}{{ form.position }}{% elsif customer %}{{ customer.position }}{% endif %}"
+            placeholder="{{ form_field_position }}"
+          >
+          <label class="field__label" for="ContactForm-position">{{ form_field_position }}</label>
+        </div>
+
+        {% comment %} 国家地区 {% endcomment %}
+        <div class="field">
+          <input
+            type="text"
+            id="ContactForm-country_province"
+            class="field__input"
+            autocomplete="country_province"
+            name="contact[{{ form_field_country_province }}]"
+            value="{% if form.country_province %}{{ form.country_province }}{% elsif customer %}{{ customer.country_province }}{% endif %}"
+            placeholder="{{ form_field_country_province }}"
+          >
+          <label class="field__label" for="ContactForm-country_province">{{ form_field_country_province }}</label>
+        </div>
+
+        {% comment %} 详细地址 {% endcomment %}
+        <div class="field">
+          <input
+            type="text"
+            id="ContactForm-address"
+            class="field__input"
+            autocomplete="address"
+            name="contact[{{ form_field_address }}]"
+            value="{% if form.address %}{{ form.address }}{% elsif customer %}{{ customer.address }}{% endif %}"
+            placeholder="{{ form_field_address }}"
+          >
+          <label class="field__label" for="ContactForm-address">{{ form_field_address }}</label>
+        </div>
+
+        {% comment %} 应用场景 {% endcomment %}
+        <div class="field">
+          <input
+            type="text"
+            id="ContactForm-application"
+            class="field__input"
+            autocomplete="application"
+            name="contact[{{ form_field_application }}]"
+            value="{% if form.application %}{{ form.application }}{% elsif customer %}{{ customer.application }}{% endif %}"
+            placeholder="{{ form_field_application }}"
+          >
+          <label class="field__label" for="ContactForm-application">{{ form_field_application }}</label>
+        </div>
+
+      </div>
+
+
+      <div class="field">
+        <textarea
+          rows="10"
+          id="ContactForm-content"
+          class="text-area field__input"
+          name="contact[{{ form_field_content }}]"
+          placeholder="{{ form_field_content_placeholder }}"
+        >
+          {{- form.content -}}
+        </textarea>
+        <label class="form__label field__label" for="ContactForm-content">
+          {{- form_field_content -}}
+        </label>
+      </div>
+
+      <div class="contact__button">
+        <button type="submit" class="button">
+          {{ form_field_submit_button }}
+        </button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>
+

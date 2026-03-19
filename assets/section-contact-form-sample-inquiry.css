@@ -1,0 +1,46 @@
+.sample-inquiry-form .contact img {
+    max-width: 100%;
+}
+
+.sample-inquiry-form .page-width--narrow {
+    margin: 0 auto;
+}
+.sample-inquiry-form  .main-page-title {
+    margin-bottom: 0;
+}
+
+.sample-inquiry-form .contact .form__message {
+    align-items: flex-start;
+}
+
+.sample-inquiry-form .contact .icon-success {
+    margin-top: 0.2rem;
+}
+
+.sample-inquiry-form .contact .field {
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+    .sample-inquiry-form .contact .field {
+        margin-bottom: 2rem;
+    }
+}
+
+.sample-inquiry-form .contact__button {
+    margin-top: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+    .sample-inquiry-form .contact__button {
+        margin-top: 4rem;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .sample-inquiry-form .contact__fields {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 2rem;
+    }
+}
