@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "cm_home_banner_TjHyAt": {
       "type": "cm-home-banner",
@@ -15,8 +15,8 @@
         "slide_ae7qUj": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner-001.png",
-            "image_mobile": "shopify://shop_images/banner-mb001.png",
+            "image": "shopify://shop_images/banner-002.png",
+            "image_mobile": "shopify://shop_images/2_1.png",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
@@ -30,7 +30,7 @@
         "slide_QTRAEy": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner-002.png",
+            "image": "shopify://shop_images/2.2.png",
             "image_mobile": "shopify://shop_images/banner-mb002.png",
             "image_overlay_opacity": 0,
             "heading": "",
