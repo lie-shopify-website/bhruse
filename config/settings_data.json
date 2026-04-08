@@ -12,6 +12,7 @@
     "logo": "shopify://shop_images/20250824125423.jpg",
     "logo_width": 300,
     "favicon": "shopify://shop_images/shortcut.png",
+    "show_product_price": false,
     "type_header_font": "sans_serif_n4",
     "heading_scale": 110,
     "type_body_font": "quattrocento_sans_n4",
