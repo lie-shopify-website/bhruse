@@ -34,6 +34,17 @@
     ]
   },
   {
+    "name": "产品价格",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_product_price",
+        "label": "显示产品价格",
+        "default": true
+      },
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {
