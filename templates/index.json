@@ -153,6 +153,54 @@
         "custom_class": ""
       }
     },
+    "collection_list_GpTFgj": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_HfynNn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "磁环电感"
+          }
+        },
+        "featured_collection_CXzxip": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "插件工字电感"
+          }
+        },
+        "featured_collection_PkUhRa": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "数字功放电感"
+          }
+        },
+        "featured_collection_iGpaYz": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "一体成型电感"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_HfynNn",
+        "featured_collection_CXzxip",
+        "featured_collection_PkUhRa",
+        "featured_collection_iGpaYz"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "产品系列",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
@@ -169,7 +217,7 @@
         "show_view_all": false,
         "view_all_style": "solid",
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
+        "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
@@ -179,47 +227,6 @@
         "swipe_on_mobile": false,
         "padding_top": 48,
         "padding_bottom": 48
-      }
-    },
-    "collection_list_GpTFgj": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_HfynNn": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "featured_collection_CXzxip": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "featured_collection_PkUhRa": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_HfynNn",
-        "featured_collection_CXzxip",
-        "featured_collection_PkUhRa"
-      ],
-      "name": "t:sections.collection-list.presets.name",
-      "settings": {
-        "title": "产品系列",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 4,
-        "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "featured_blog_QNHAjC": {
@@ -244,8 +251,8 @@
   "order": [
     "cm_home_banner_TjHyAt",
     "industry_applications",
-    "featured-collection",
     "collection_list_GpTFgj",
+    "featured-collection",
     "featured_blog_QNHAjC"
   ]
 }
