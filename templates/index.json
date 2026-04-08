@@ -181,6 +181,47 @@
         "padding_bottom": 48
       }
     },
+    "collection_list_GpTFgj": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_HfynNn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_CXzxip": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_PkUhRa": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_HfynNn",
+        "featured_collection_CXzxip",
+        "featured_collection_PkUhRa"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "产品系列",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_blog_QNHAjC": {
       "type": "featured-blog",
       "name": "t:sections.featured-blog.presets.name",
@@ -204,6 +245,7 @@
     "cm_home_banner_TjHyAt",
     "industry_applications",
     "featured-collection",
+    "collection_list_GpTFgj",
     "featured_blog_QNHAjC"
   ]
 }
