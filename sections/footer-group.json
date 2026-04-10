@@ -37,6 +37,7 @@
         "paragraph",
         "email_form"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-4",
         "full_width": true,
@@ -69,7 +70,7 @@
         "payment_enable": false,
         "show_policy": true,
         "margin_top": 0,
-        "padding_top": 0,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     }
