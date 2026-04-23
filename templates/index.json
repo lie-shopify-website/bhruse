@@ -12,26 +12,70 @@
     "cm_home_banner_TjHyAt": {
       "type": "cm-home-banner",
       "blocks": {
-        "slide_ae7qUj": {
+        "slide_kQdbqJ": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner-002.png",
-            "image_mobile": "shopify://shop_images/2_1.png",
+            "image": "shopify://shop_images/01.jpg",
+            "image_mobile": "shopify://shop_images/01.jpg",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "",
-            "link": "shopify://pages/contact",
+            "link": "",
             "button_style_secondary": false,
             "box_align": "middle-center"
           }
         },
-        "slide_QTRAEy": {
+        "slide_Wr8eCP": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/2.2.png",
-            "image_mobile": "shopify://shop_images/banner-mb002.png",
+            "image": "shopify://shop_images/02.jpg",
+            "image_mobile": "shopify://shop_images/02.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center"
+          }
+        },
+        "slide_wCL7i9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/03.jpg",
+            "image_mobile": "shopify://shop_images/03.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center"
+          }
+        },
+        "slide_Fiz9DD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/04.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center"
+          }
+        },
+        "slide_3ebRBP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/05.jpg",
+            "image_mobile": "shopify://shop_images/05.jpg",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
@@ -44,8 +88,11 @@
         }
       },
       "block_order": [
-        "slide_ae7qUj",
-        "slide_QTRAEy"
+        "slide_kQdbqJ",
+        "slide_Wr8eCP",
+        "slide_wCL7i9",
+        "slide_Fiz9DD",
+        "slide_3ebRBP"
       ],
       "name": "首页轮播 Home Banner",
       "settings": {
