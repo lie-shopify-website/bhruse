@@ -78,6 +78,7 @@
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
 
+        <div class="product-special-links-container">
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'pdf' -%}
@@ -86,6 +87,7 @@
               {% render 'contact-us', block: block %}
           {%- endcase -%}
         {%- endfor -%}
+        </div>
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section

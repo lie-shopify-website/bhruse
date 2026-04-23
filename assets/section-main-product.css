@@ -1500,14 +1500,18 @@ a.product__text {
 }
 
 /* PDF 下载（元字段 custom.pdf + 区块 pdf_text / pdf_icon） */
-.product-pdf-download {
-  margin-top: 1.2rem;
-}
 
 .product-pdf-download__link {
-  display: inline-flex;
+  min-height: 48px;
+  padding: 0 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 2px #024f7c;
   align-items: center;
   gap: 0.6rem;
+  color: #024f7c;
+  text-decoration: unset;
 }
 
 .product-pdf-download__icon-img {
@@ -1518,14 +1522,18 @@ a.product__text {
 }
 
 /* 联系我们（区块 URL / 文本 / 图标） */
-.product-contact-us {
-  margin-top: 1.2rem;
-}
 
 .product-contact-us__link {
-  display: inline-flex;
+  min-height: 48px;
+  padding: 0 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 2px #024f7c;
   align-items: center;
   gap: 0.6rem;
+  color: #024f7c;
+  text-decoration: unset;
 }
 
 .product-contact-us__icon-img {
@@ -1533,4 +1541,12 @@ a.product__text {
   height: auto;
   display: block;
   flex-shrink: 0;
+}
+
+
+.product-special-links-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }

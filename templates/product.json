@@ -19,11 +19,21 @@
         "description": {
           "type": "description",
           "settings": {}
-        }
+        },
+        "contact_us": {
+          "type": "contact_us",
+          "settings": {}
+        },
+        "pdf": {
+          "type": "pdf",
+          "settings": {}
+        } 
       },
       "block_order": [
         "title",
-        "description"
+        "description",
+        "contact_us",
+        "pdf"
       ],
       "settings": {
         "enable_sticky_info": true,
