@@ -8,6 +8,7 @@ product-info {
 
 .product.grid {
   gap: 0;
+  justify-content: space-between;
 }
 
 .product--no-media {
@@ -78,8 +79,8 @@ product-info {
 
   .product--medium:not(.product--no-media) .product__media-wrapper,
   .product--small:not(.product--no-media) .product__info-wrapper {
-    max-width: 55%;
-    width: calc(55% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: 45%;
+    width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
   .product--medium:not(.product--no-media) .product__info-wrapper,
@@ -89,6 +90,11 @@ product-info {
   }
 }
 
+
+media-gallery {
+  box-shadow: 0 0 0 2px #024f7c;
+  display: block;
+}
 /* Dynamic checkout */
 
 .shopify-payment-button__button {
@@ -1491,4 +1497,40 @@ a.product__text {
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+/* PDF 下载（元字段 custom.pdf + 区块 pdf_text / pdf_icon） */
+.product-pdf-download {
+  margin-top: 1.2rem;
+}
+
+.product-pdf-download__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.product-pdf-download__icon-img {
+  width: 2.2rem;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* 联系我们（区块 URL / 文本 / 图标） */
+.product-contact-us {
+  margin-top: 1.2rem;
+}
+
+.product-contact-us__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.product-contact-us__icon-img {
+  width: 2.2rem;
+  height: auto;
+  display: block;
+  flex-shrink: 0;
 }

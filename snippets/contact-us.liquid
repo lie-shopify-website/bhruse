@@ -1,0 +1,53 @@
+{%- comment -%}
+  区块设置：contact_us_url、contact_us_text、contact_us_icon
+{%- endcomment -%}
+{%- liquid
+  assign contact_url = block.settings.contact_us_url
+  assign text_setting = block.settings.contact_us_text | strip
+  assign default_label = '技术咨询'
+-%}
+
+{%- if contact_url != blank -%}
+  {%- liquid
+    assign link_aria_label = blank
+    if text_setting != blank
+      assign link_aria_label = text_setting
+    elsif block.settings.contact_us_icon != blank
+      assign link_aria_label = default_label
+    else
+      assign link_aria_label = default_label
+    endif
+    assign open_new_tab = false
+    if contact_url contains 'http'
+      assign open_new_tab = true
+    endif
+  -%}
+  <div class="product-contact-us" {{ block.shopify_attributes }}>
+    <a
+      href="{{ contact_url }}"
+      class="product-contact-us__link link"
+      {% if open_new_tab %}
+        target="_blank"
+        rel="noopener noreferrer"
+      {% endif %}
+      {% if text_setting == blank and block.settings.contact_us_icon != blank %}
+        aria-label="{{ link_aria_label | escape }}"
+      {% endif %}
+    >
+      {%- if text_setting != blank -%}
+        <span class="product-contact-us__text">{{ text_setting }}</span>
+      {%- elsif block.settings.contact_us_icon == blank -%}
+        <span class="product-contact-us__text">{{ default_label }}</span>
+      {%- endif -%}
+      {%- if block.settings.contact_us_icon != blank -%}
+        <span class="product-contact-us__icon" aria-hidden="true">
+          {{
+            block.settings.contact_us_icon
+            | image_url: width: 64
+            | image_tag: loading: 'lazy', class: 'product-contact-us__icon-img', alt: ''
+          }}
+        </span>
+      {%- endif -%}
+    </a>
+  </div>
+{%- endif -%}

@@ -27,7 +27,7 @@
 
   {%- style -%}
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-top: 10px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
 
@@ -77,6 +77,15 @@
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
+
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'pdf' -%}
+              {% render 'pdf-download', block: block %}
+            {%- when 'contact_us' -%}
+              {% render 'contact-us', block: block %}
+          {%- endcase -%}
+        {%- endfor -%}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -777,6 +786,26 @@
           "default": "body",
           "label": "t:sections.main-product.blocks.text.settings.text_style.label"
         }
+      ]
+    },
+    {
+      "type": "contact_us",
+      "name": "联系我们",
+      "limit": 1,
+      "settings": [
+        { "type": "url", "id": "contact_us_url", "label": "联系我们URL" },
+        { "type": "text", "id": "contact_us_text", "label": "联系我们文本", "default": "技术咨询" },
+        { "type": "image_picker", "id": "contact_us_icon", "label": "联系我们图标" }
+      ]
+    },
+    {
+      "type": "pdf",
+      "name": "PDF下载",
+      "limit": 1,
+      "settings": [
+        { "type": "header", "content": "PDF文件上传在产品元字段(pdf)中" },
+        { "type": "text", "id": "pdf_text", "label": "PDF文本", "default": "PDF下载" },
+        { "type": "image_picker", "id": "pdf_icon", "label": "PDF图标" }
       ]
     },
     {

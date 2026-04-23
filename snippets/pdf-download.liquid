@@ -1,0 +1,55 @@
+{%- comment -%}
+  产品元字段 custom.pdf（文件引用或 URL 文本）；区块：pdf_text、pdf_icon
+{%- endcomment -%}
+{%- liquid
+  assign pdf_meta = product.metafields.custom.pdf
+  assign pdf_url = blank
+  if pdf_meta != blank and pdf_meta.value != blank
+    if pdf_meta.value.url != blank
+      assign pdf_url = pdf_meta.value.url
+    else
+      assign pdf_url = pdf_meta.value
+    endif
+  endif
+-%}
+
+{%- if pdf_url != blank -%}
+  {%- liquid
+    assign pdf_text_setting = block.settings.pdf_text | strip
+    assign pdf_default_label = 'PDF下载'
+    assign link_aria_label = blank
+    if pdf_text_setting != blank
+      assign link_aria_label = pdf_text_setting
+    elsif block.settings.pdf_icon != blank
+      assign link_aria_label = pdf_default_label
+    else
+      assign link_aria_label = pdf_default_label
+    endif
+  -%}
+  <div class="product-pdf-download" {{ block.shopify_attributes }}>
+    <a
+      href="{{ pdf_url }}"
+      class="product-pdf-download__link link"
+      target="_blank"
+      rel="noopener noreferrer"
+      {% if pdf_text_setting == blank and block.settings.pdf_icon != blank %}
+        aria-label="{{ link_aria_label | escape }}"
+      {% endif %}
+    >
+      {%- if pdf_text_setting != blank -%}
+        <span class="product-pdf-download__text">{{ pdf_text_setting }}</span>
+      {%- elsif block.settings.pdf_icon == blank -%}
+        <span class="product-pdf-download__text">{{ pdf_default_label }}</span>
+      {%- endif -%}
+      {%- if block.settings.pdf_icon != blank -%}
+        <span class="product-pdf-download__icon" aria-hidden="true">
+          {{
+            block.settings.pdf_icon
+            | image_url: width: 64
+            | image_tag: loading: 'lazy', class: 'product-pdf-download__icon-img', alt: ''
+          }}
+        </span>
+      {%- endif -%}
+    </a>
+  </div>
+{%- endif -%}
