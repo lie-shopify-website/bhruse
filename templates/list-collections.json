@@ -12,7 +12,7 @@
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "title": "Collections",
+        "title": "产品中心",
         "sort": "alphabetical",
         "image_ratio": "adapt",
         "columns_desktop": 3,
