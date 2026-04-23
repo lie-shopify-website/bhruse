@@ -31,10 +31,9 @@
           "settings": {
             "menu_item": "产品中心",
             "image1": "shopify://shop_images/menu-001.png",
-            "title1": "行业电感",
-            "link1": "",
-            "image2": "shopify://shop_images/menu-001.png",
-            "title2": "行业电感",
+            "title1": "产品中心",
+            "link1": "shopify://collections",
+            "title2": "",
             "link2": ""
           }
         },
