@@ -1,0 +1,95 @@
+{% schema %}
+    {
+        "name": "注释保存",
+        "settings": [
+            { "type": "header","content":"注释"},
+            { "type": "text", "id": "comment_title", "label": "标题", "default": "注释" },
+            { "type": "textarea", "id": "comment_info", "label": "内容", "info": "支持HTML代码,换行" },
+
+            { "type": "header","content":"保存"},
+            { "type": "text", "id": "save_title", "label": "标题", "default": "保存" },
+            { "type": "textarea", "id": "save_info", "label": "内容", "info": "支持HTML代码,换行" },
+
+            { "type": "header","content":"其他"},
+            { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_top", "default": 36 },
+            { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "t:sections.all.padding.padding_bottom", "default": 36 },
+            { "type": "text", "id": "custom_class", "label": "自定义class" }
+        ],
+
+        "presets": [
+            {
+                "name": "注释保存",
+                "category": "custom"
+            }
+        ]
+    }
+{% endschema %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+    .cm-save-comment-layout .content-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .content-layout__item { flex: 1; }
+    .cm-save-comment-layout .item-info {
+        border: 1px solid #000;
+        padding: 24px;
+        font-size: 14px;
+    }
+    .cm-save-comment-layout .item-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .cm-save-comment-layout .content-items {
+        flex-direction: row;
+    }
+  }
+{%- endstyle -%}
+
+<div data-section-id="{{ section.id }}" class="cm-save-comment-layout section-{{ section.id }}-padding">
+
+<div class="cm-save-comment {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}">
+
+    <div class="mf-container page-width">
+
+        <div class="content-layout">
+            <div class="content-items">
+                {% if section.settings.comment_info != blank %}
+                    <div class="content-layout__item comment">
+                        <div class="item-title">
+                            {{ section.settings.comment_title }}
+                        </div>
+                        <div class="item-info">
+                            {{ section.settings.comment_info | newline_to_br }}
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if section.settings.save_info != blank %}
+                    <div class="content-layout__item save">
+                        <div class="item-title">
+                            {{ section.settings.save_title }}
+                        </div>
+                        <div class="item-info">
+                            {{ section.settings.save_info | newline_to_br }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

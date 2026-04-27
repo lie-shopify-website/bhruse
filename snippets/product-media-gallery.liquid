@@ -329,4 +329,17 @@
       </button>
     </slider-component>
   {%- endif -%}
+
+
+  <div class="product-special-links-container">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'pdf' -%}
+          {% render 'pdf-download', block: block %}
+        {%- when 'contact_us' -%}
+          {% render 'contact-us', block: block %}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+
 </media-gallery>

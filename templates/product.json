@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -58,6 +58,18 @@
         "padding_bottom": 44
       }
     },
+    
+    "cm_save_comment_jjLDQ7": {
+      "type": "cm-save-comment",
+      "name": "注释保存",
+      "settings": {
+        "comment_info": "■ 所有数据基于环境温度 25℃条件下测试。\n\n■ 电感测试条件为 100kHz, 0.5V。\n\n■ 饱和电流：电感值下降其初始值的 30%时所加载的实际直流电流值。\n\n■ 温升电流：使产品温度上升到 ΔT50℃时所加载的实际直流电流值(Ta=25℃)。\n\n■ 特别提醒：线路设计，组件布局，印刷线路板(PCB)尺寸及厚度，散热系统等均会影响产品温度。\n\n■ 请务必在最终应用时，验证产品发热状况。",
+        "save_info": "■ 产品在包装中的保存条件：温度 5～40°C，相对湿度小于等于 70%。\n\n■ 如果取出使用，剩余的产品请用胶袋密封按照以上条件保存，避免端子(电极)氧化，影响焊接状态。\n\n■ 产品储存期不建议超过 12 个月，在其他影响下，端子可能会氧化，导致焊接性差。\n\n■ 请不要将产品保存于高温、高湿、有尘埃、腐蚀性气体的不适合环境中。\n\n■ 请小心轻放，避免由于产品的跌落或取用不当而引致的损坏。\n\n■ 手上的油脂会导致可焊性降低，应避免用手直接接触端子。",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": ""
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -75,10 +87,12 @@
         "padding_top": 36,
         "padding_bottom": 68
       }
-    }
+    },
   },
   "order": [
     "main",
-    "related-products"
+    "cm_save_comment_jjLDQ7",
+    "related-products",
+    
   ]
 }
