@@ -44,6 +44,7 @@
         },
         "address_jdTbU3": {
           "type": "address",
+          "disabled": true,
           "settings": {
             "company_image": "shopify://shop_images/address-image001.png",
             "company_name": "深圳市科达嘉电子有限公司",
@@ -55,6 +56,7 @@
         },
         "address_FNiM9c": {
           "type": "address",
+          "disabled": true,
           "settings": {
             "company_image": "shopify://shop_images/address-image001.png",
             "company_name": "深圳市科达嘉电子有限公司",
@@ -68,7 +70,7 @@
           "type": "qrcode",
           "settings": {
             "qrcode_image": "shopify://shop_images/qrcode.png",
-            "info": "公司微信二维码"
+            "info": ""
           }
         }
       },
