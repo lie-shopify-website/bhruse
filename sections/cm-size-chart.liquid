@@ -59,10 +59,18 @@
                 {{ section.settings.title }}
             </div>
 
-            {% if product.metafields.custom.dimensions != blank %}
+            {%- assign dimension_list = product.metafields.custom.dimensions.value -%}
+            {% if dimension_list != blank %}
             <div class="images">
-                {% for dimension in product.metafields.custom.dimensions %}
-                    <img src="{{ dimension.value | image_url: width: 2560 }}" alt="{{ dimension.value.alt }}" width="2560" height="auto">
+                {%- comment -%} 列表型元字段 list.file_reference：遍历 .value；每项对过滤器 image_url，勿再用 .value {%- endcomment -%}
+                {% for dimension in dimension_list %}
+                  <img
+                    src="{{ dimension | image_url: width: 2560 }}"
+                    alt="{{ dimension.alt | escape }}"
+                    loading="lazy"
+                    width="{{ dimension.width }}"
+                    height="{{ dimension.height }}"
+                  >
                 {% endfor %}
             </div>
             {% endif %}
