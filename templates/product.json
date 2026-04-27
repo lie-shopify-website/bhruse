@@ -58,7 +58,16 @@
         "padding_bottom": 44
       }
     },
-    
+    "cm_size_chart_jjLDQ7": {
+      "type": "cm-size-chart",
+      "name": "尺寸图",
+      "settings": {
+        "title": "尺寸图",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": ""
+      }
+    },
     "cm_save_comment_jjLDQ7": {
       "type": "cm-save-comment",
       "name": "注释保存",
@@ -91,8 +100,8 @@
   },
   "order": [
     "main",
+    "cm_size_chart_jjLDQ7",
     "cm_save_comment_jjLDQ7",
     "related-products",
-    
   ]
 }
