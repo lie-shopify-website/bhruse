@@ -22,12 +22,19 @@
         },
         "contact_us": {
           "type": "contact_us",
-          "settings": {}
+          "settings": {
+            "contact_us_url": "shopify://pages/contact",
+            "contact_us_text": "技术咨询",
+            "contact_us_icon": "shopify://shop_images/wechat.svg"
+          }
         },
         "pdf": {
           "type": "pdf",
-          "settings": {}
-        } 
+          "settings": {
+            "pdf_text": "PDF下载",
+            "pdf_icon": "shopify://shop_images/pdf.svg"
+          }
+        }
       },
       "block_order": [
         "title",
