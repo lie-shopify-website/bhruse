@@ -59,6 +59,7 @@
         },
         "slide_Fiz9DD": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/04.jpg",
             "image_mobile": "shopify://shop_images/04-mb.jpg",
